@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aible — Nicole Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #fafaf9;
+            --color-text: #1a1816;
+            --color-text-muted: #6b6662;
+            --color-accent: #d97706;
+            --color-accent-dark: #b45309;
+            --color-border: #e7e5e4;
+            --color-surface: #ffffff;
+            
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 250, 249, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-text);
+            text-decoration: none;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text);
+        }
+
+        .back-link {
+            color: var(--color-accent-dark);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-md);
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        /* Project Page Styles */
+        .project-page {
+            padding: calc(var(--spacing-xl) + 80px) 0 var(--spacing-xl);
+        }
+
+        .project-header {
+            background: var(--color-surface);
+            padding: 3rem 3rem 2rem;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 0;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .project-overview {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .project-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--color-text);
+        }
+
+        .project-body {
+            background: var(--color-surface);
+            padding: 3rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .content-section h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .content-section ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section li {
+            font-size: 1.05rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .content-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+        }
+
+        .highlight-box {
+            background: var(--color-bg);
+            border-left: 4px solid var(--color-accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--color-text-muted);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            background: var(--color-bg);
+        }
+
+        footer p {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                gap: var(--spacing-sm);
+            }
+
+            .project-page {
+                padding: calc(var(--spacing-lg) + 120px) 0 var(--spacing-lg);
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .project-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="nicole-lee-portfolio.html" class="nav-logo">Nicole Lee</a>
+            <ul class="nav-links">
+                <li><a href="nicole-lee-portfolio.html#work">Work</a></li>
+                <li><a href="nicole-lee-portfolio.html#about">About</a></li>
+                <li><a href="nicole-lee-portfolio.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="project-page">
+        <div class="container">
+            <a href="nicole-lee-portfolio.html#work" class="back-link">← Back to Work</a>
+            
+            <div class="project-header">
+                <h1>Aible</h1>
+                <p class="project-overview">Simplifying enterprise AI platform navigation and workflows</p>
+                <div class="project-meta-grid">
+                    <div class="meta-item">
+                        <div class="meta-label">My Role</div>
+                        <div class="meta-value">Product Design, Interaction Design</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Timeline</div>
+                        <div class="meta-value">14 weeks</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Tools</div>
+                        <div class="meta-value">Figma, User Interviews, Analytics</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-body">
+                <div class="content-section">
+                    <h3>1. Problem / Challenge</h3>
+                    <p>Aible is an enterprise AI platform that helps companies build and deploy machine learning models without requiring deep technical expertise. The platform democratizes AI by making it accessible to business users, not just data scientists.</p>
+                    <p>The users were business analysts and operations managers at enterprise companies—people who understood their business problems but weren't ML engineers. They needed to create predictive models to solve challenges like customer churn, demand forecasting, and fraud detection.</p>
+                    <p>The core problem: Complex workflows and unclear navigation prevented users from maximizing the platform's value. Users were getting lost in the multi-step model creation process, abandoning projects partway through, and not discovering powerful features that could help them. The interface reflected the platform's technical complexity rather than the user's mental model of their work.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>2. Role & Responsibilities</h3>
+                    <p><strong>My role:</strong> I led product design and interaction design, partnering with a product manager, data science team, and engineering. I conducted user research with enterprise clients, designed information architecture improvements, created high-fidelity prototypes, and worked closely with engineering on implementation.</p>
+                    <p><strong>Timeline:</strong> 14 weeks from research through implementation</p>
+                    <p><strong>Tools:</strong> Figma for design and prototyping, user interviews with enterprise clients, Mixpanel analytics to identify drop-off points, collaborative workshops with the product team</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>3. Research & Insights</h3>
+                    <p>I conducted 10 user interviews with business analysts and operations managers at client companies. I also analyzed platform usage data to identify where users were dropping off, and shadowed 3 users as they worked through real projects to understand friction points in context.</p>
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li><strong>Lost in the process:</strong> The model-building workflow had 8+ steps spread across different sections of the app. Users couldn't see where they were in the process or what came next, leading to confusion and abandonment</li>
+                        <li><strong>Feature blindness:</strong> Users were unaware of key features like automated model optimization and data quality checks because they were buried in menus. They were manually doing work the platform could automate</li>
+                        <li><strong>Unclear value:</strong> Users didn't understand the impact of their design choices. When setting parameters, they didn't know how their selections would affect model performance, so they defaulted to whatever was pre-selected</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p>"I know this platform can do a lot, but I feel like I'm only using 20% of it because I can't find things. I'm probably doing things the hard way without knowing there's a better option." — Interview participant, business analyst at Fortune 500 company</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>4. Design Goals / Constraints</h3>
+                    <p>The main design goals were:</p>
+                    <ul>
+                        <li>Create clear navigation that matches users' mental model of "building a model" rather than the technical architecture of the system</li>
+                        <li>Surface helpful features at the moment users need them, rather than hiding everything in menus</li>
+                        <li>Provide contextual guidance that helps users understand the impact of their choices without requiring ML expertise</li>
+                    </ul>
+                    <p><strong>Constraints:</strong> We couldn't change the underlying technical workflow—model building inherently requires multiple steps with dependencies between them. We also had to maintain backwards compatibility for existing power users who had learned the current system. Platform performance was a concern (we couldn't add too many UI elements that would slow load times for enterprise-scale data). Timeline was tight—we needed to ship before the annual user conference.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>5. Ideation & Iteration</h3>
+                    <p>I started by mapping the current user journey and identifying the highest-impact pain points. My initial design concept introduced a left-hand navigation rail showing all 8 steps at once. Early testing revealed this created new confusion—users felt overwhelmed seeing all steps upfront when they weren't ready for later ones.</p>
+                    <p><strong>Iteration 1:</strong> I tested a wizard-style flow that locked users into a linear path. Power users hated it—they needed to jump back and forth between steps as they refined their model. The rigidity prevented the iterative workflow that's essential for model development.</p>
+                    <p><strong>Key learning:</strong> We needed progressive structure, not rigid linearity. Show users where they are and what's next, but allow flexibility for iteration.</p>
+                    <p><strong>Iteration 2:</strong> I designed a stepped progress indicator at the top of the workspace that showed the user's current step in context of the full workflow, with completed steps marked and future steps visible but de-emphasized. This let users see the full picture while focusing on their current task. Critically, all steps remained clickable so power users could jump around.</p>
+                    <p><strong>Specific design decision:</strong> We added contextual tooltips and inline suggestions that appeared at decision points. For example, when a user was setting a data threshold, we showed "Higher values = more precision, lower values = catch more cases" with a visualization of the tradeoff. This surfaced the impact of technical choices without requiring users to understand the underlying ML concepts.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>6. Final Solution</h3>
+                    <p>The redesigned platform helps users navigate complex AI workflows with clarity and confidence:</p>
+                    <ul>
+                        <li><strong>Clear progress tracking</strong> — Stepped navigation shows users where they are in the 8-step process, what's complete, and what's next, while allowing flexibility to jump between steps</li>
+                        <li><strong>Contextual feature discovery</strong> — Automated optimization and data quality tools now appear inline at the moment users need them, with clear explanations of what they do</li>
+                        <li><strong>Guided decision-making</strong> — At every parameter selection, users see the impact of their choice explained in business terms, not technical jargon</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p>How it solves the original problem: Users can now navigate the platform confidently, discovering features that save time and improve outcomes. The interface hides technical complexity while surfacing the right information at the right time, letting business users focus on their goals rather than learning ML.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>7. Outcomes / Learnings</h3>
+                    <p><strong>Impact:</strong> Model completion rate increased from 42% to 71%—significantly more users were finishing projects they started. Usage of automated optimization features increased 3x after we made them more discoverable. Support tickets about "how do I..." decreased by 40%. Client feedback: "It finally feels like a tool designed for people like me, not just data scientists."</p>
+                    <p><strong>What I'd measure next:</strong> I'd track feature adoption depth (are users just trying features or integrating them into their regular workflow?) and time-to-value (how long from account creation to first successful model deployment). Would also measure model quality improvements to see if better feature discovery leads to better outcomes.</p>
+                    <p><strong>What I learned:</strong> Complex workflows don't require complex interfaces. Users can handle sophisticated tools if the interface maps to their mental model rather than the system architecture. Also, progressive disclosure works best when paired with flexibility—show users what's next without forcing them down a single path. Context is more valuable than features—users need to understand why they should care, not just what the feature does.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Nicole Lee — Designed & built with care</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWITCH — Nicole Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #fafaf9;
+            --color-text: #1a1816;
+            --color-text-muted: #6b6662;
+            --color-accent: #d97706;
+            --color-accent-dark: #b45309;
+            --color-border: #e7e5e4;
+            --color-surface: #ffffff;
+            
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 250, 249, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-text);
+            text-decoration: none;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text);
+        }
+
+        .back-link {
+            color: var(--color-accent-dark);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-md);
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        /* Project Page Styles */
+        .project-page {
+            padding: calc(var(--spacing-xl) + 80px) 0 var(--spacing-xl);
+        }
+
+        .project-header {
+            background: var(--color-surface);
+            padding: 3rem 3rem 2rem;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 0;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .project-overview {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .project-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--color-text);
+        }
+
+        .project-body {
+            background: var(--color-surface);
+            padding: 3rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .content-section h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .content-section ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section li {
+            font-size: 1.05rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .content-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+        }
+
+        .highlight-box {
+            background: var(--color-bg);
+            border-left: 4px solid var(--color-accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--color-text-muted);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            background: var(--color-bg);
+        }
+
+        footer p {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                gap: var(--spacing-sm);
+            }
+
+            .project-page {
+                padding: calc(var(--spacing-lg) + 120px) 0 var(--spacing-lg);
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .project-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="nicole-lee-portfolio.html" class="nav-logo">Nicole Lee</a>
+            <ul class="nav-links">
+                <li><a href="nicole-lee-portfolio.html#work">Work</a></li>
+                <li><a href="nicole-lee-portfolio.html#about">About</a></li>
+                <li><a href="nicole-lee-portfolio.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="project-page">
+        <div class="container">
+            <a href="nicole-lee-portfolio.html#work" class="back-link">← Back to Work</a>
+            
+            <div class="project-header">
+                <h1>SWITCH</h1>
+                <p class="project-overview">Redesigning financial tools for student loan borrowers</p>
+                <div class="project-meta-grid">
+                    <div class="meta-item">
+                        <div class="meta-label">My Role</div>
+                        <div class="meta-value">UX/UI Design, User Research</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Timeline</div>
+                        <div class="meta-value">10 weeks</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Tools</div>
+                        <div class="meta-value">Figma, User Testing, Surveys</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-body">
+                <div class="content-section">
+                    <h3>1. Problem / Challenge</h3>
+                    <p>SWITCH helps student loan borrowers understand and navigate repayment options—a notoriously complex landscape with multiple plans, eligibility requirements, and long-term financial implications.</p>
+                    <p>The users were primarily recent college graduates and current students trying to make informed decisions about their loans. Many felt overwhelmed by financial jargon and uncertain about which repayment plan was best for their situation.</p>
+                    <p>The problem: Students needed a clearer way to understand and compare loan repayment options. The existing interface presented information in dense tables and technical language that assumed financial literacy most users didn't have. Users were making critical financial decisions without truly understanding their options.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>2. Role & Responsibilities</h3>
+                    <p><strong>My role:</strong> I led UX research and design, working with a product manager and two engineers. I conducted user interviews and surveys with student loan borrowers, created wireframes and high-fidelity designs, and ran usability tests throughout the design process.</p>
+                    <p><strong>Timeline:</strong> 10 weeks from initial research to handoff</p>
+                    <p><strong>Tools:</strong> Figma for design and prototyping, user interviews and surveys for research, UserTesting.com for remote usability testing</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>3. Research & Insights</h3>
+                    <p>I conducted 12 user interviews with current and recent borrowers, supplemented by a survey of 50+ users to validate findings at scale. I also analyzed support tickets to understand common confusion points.</p>
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li><strong>Comparison paralysis:</strong> Users struggled to compare repayment plans because they couldn't see the long-term implications side-by-side. They understood monthly payments but not total cost over time</li>
+                        <li><strong>Jargon barrier:</strong> Terms like "Income-Driven Repayment" and "capitalized interest" were barriers. Users said "I just want to know what I'll actually pay"</li>
+                        <li><strong>Missing context:</strong> Users didn't know if a plan was "good" or "bad" for their situation because they lacked relevant context and benchmarks</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p>"I spent 2 hours trying to figure out which plan to choose and I still don't know if I made the right decision. The numbers mean nothing to me without context." — Interview participant, recent graduate</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>4. Design Goals / Constraints</h3>
+                    <p>The main design goals were:</p>
+                    <ul>
+                        <li>Make plan comparisons visual and intuitive—show total cost, monthly payments, and payoff timeline side-by-side</li>
+                        <li>Replace jargon with plain language explanations that users can understand immediately</li>
+                        <li>Provide personalized context—help users understand which plan fits their specific financial situation</li>
+                    </ul>
+                    <p><strong>Constraints:</strong> We had to work within federal loan terminology requirements for legal compliance—we couldn't just invent our own terms. The platform also needed to integrate with existing loan servicer APIs, which limited what data we could pull and display. We had a 10-week timeline to ship before the federal loan payment pause ended.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>5. Ideation & Iteration</h3>
+                    <p>My initial concept used a traditional comparison table, thinking users would want to see all details at once. Early testing revealed this was still overwhelming—users didn't know which columns to focus on.</p>
+                    <p><strong>Iteration 1:</strong> I designed a wizard flow that asked users questions about their financial situation first, then showed personalized recommendations. Users appreciated the guidance but felt "locked in" to the wizard's recommendation without understanding alternatives.</p>
+                    <p><strong>Key learning:</strong> Users wanted both guidance AND autonomy. They needed help understanding their options but didn't want to feel like the system was deciding for them.</p>
+                    <p><strong>Iteration 2:</strong> I created a card-based comparison view where each plan appeared as a visual card showing three key numbers: monthly payment, total paid, and years to payoff. Below each number, I added plain-language context like "This is $200 more per month than the standard plan, but you'll pay $12,000 less total."</p>
+                    <p><strong>Specific design decision:</strong> We moved from a dense table layout to large, scannable cards with visual indicators (like progress bars showing "% of income") because users said they wanted to "feel" the difference between plans, not just read numbers. The visual format made abstract financial concepts more tangible.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>6. Final Solution</h3>
+                    <p>The final design helps users understand loan repayment through clear comparisons and contextual explanations:</p>
+                    <ul>
+                        <li><strong>Visual plan cards</strong> — Each repayment option shows monthly payment, total cost, and timeline with visual indicators, making comparison immediate and intuitive</li>
+                        <li><strong>Contextual explanations</strong> — Below each number, we show what it means in plain language (e.g., "$150/month is about 8% of your expected income")</li>
+                        <li><strong>Smart recommendations</strong> — The system suggests a plan based on user input but always shows all options with clear explanations of why one might be better for their situation</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p>How it solves the original problem: Users can now make informed decisions about loan repayment without needing a finance degree. The interface translates complex financial concepts into visual, comparable information with enough context to build confidence in their choice.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>7. Outcomes / Learnings</h3>
+                    <p><strong>Impact:</strong> Post-launch usability testing showed users could successfully compare plans and make a selection 85% of the time (up from 43% with the old interface). Time to complete plan selection dropped from an average of 18 minutes to 6 minutes. User feedback: "Finally I understand what I'm actually signing up for."</p>
+                    <p><strong>What I'd measure next:</strong> I'd track plan selection confidence (through post-selection survey) and plan switching rates (if users frequently change their choice, it might indicate continued confusion). Would also measure long-term engagement to see if the improved understanding leads to better financial outcomes.</p>
+                    <p><strong>What I learned:</strong> Context is everything when designing for complex decisions. Raw data isn't helpful unless users can interpret what it means for them personally. Also, users want guidance but not paternalism—showing recommendations alongside alternatives builds trust and confidence.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Nicole Lee — Designed & built with care</p>
+        </div>
+    </footer>
+</body>
+</html>

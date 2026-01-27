@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole Lee — Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #fafaf9;
+            --color-text: #1a1816;
+            --color-text-muted: #6b6662;
+            --color-accent: #d97706;
+            --color-accent-dark: #b45309;
+            --color-border: #e7e5e4;
+            --color-surface: #ffffff;
+            
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 250, 249, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-text);
+            text-decoration: none;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: calc(var(--spacing-xl) + 80px) 0 var(--spacing-xl);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.1;
+        }
+
+        .title-accent {
+            font-style: italic;
+            color: var(--color-accent-dark);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            color: var(--color-text);
+            max-width: 650px;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 300;
+        }
+
+        .hero-current {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-heading {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-lg);
+            font-style: italic;
+        }
+
+        /* Projects Grid */
+        #work {
+            background: var(--color-surface);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .project-card {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            padding: var(--spacing-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(26, 24, 22, 0.08);
+            border-color: var(--color-accent);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .project-title {
+            font-size: 1.75rem;
+            font-style: italic;
+        }
+
+        .project-arrow {
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-arrow {
+            transform: translateX(4px);
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.5;
+        }
+
+        .project-meta {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .project-role {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .project-problem {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--color-bg);
+        }
+
+        .about-profile {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            flex-shrink: 0;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+        }
+
+        .profile-bio {
+            flex: 1;
+        }
+
+        .profile-bio h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .profile-bio p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            max-width: 900px;
+        }
+
+        .about-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .about-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .about-section ul {
+            list-style: none;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .about-section li {
+            font-size: 1.05rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .about-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .skill-tag {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--color-surface);
+        }
+
+        .contact-intro {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.6;
+            max-width: 650px;
+        }
+
+        .contact-details {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            max-width: 650px;
+        }
+
+        .contact-item {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+        }
+
+        .contact-value a {
+            color: var(--color-accent-dark);
+            text-decoration: none;
+            border-bottom: 2px solid var(--color-accent);
+            transition: all 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--color-accent);
+            border-bottom-color: var(--color-accent-dark);
+        }
+
+        .resume-btn {
+            display: inline-block;
+            background: var(--color-accent-dark);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-accent-dark);
+        }
+
+        .resume-btn:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(185, 83, 9, 0.2);
+        }
+
+        /* Project Modal */
+        .project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            display: none;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .project-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--color-surface);
+            border-radius: 2px;
+            max-width: 900px;
+            width: 100%;
+            margin: 4rem auto;
+            position: relative;
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--color-text-muted);
+            transition: color 0.3s;
+            padding: 0.5rem;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: var(--color-text);
+        }
+
+        .modal-header {
+            padding: 3rem 3rem 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .modal-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .modal-overview {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .modal-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--color-text);
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .content-section h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .content-section ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section li {
+            font-size: 1.05rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .content-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+        }
+
+        .highlight-box {
+            background: var(--color-bg);
+            border-left: 4px solid var(--color-accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--color-text-muted);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            background: var(--color-bg);
+        }
+
+        footer p {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                gap: var(--spacing-sm);
+            }
+
+            .hero {
+                padding: calc(var(--spacing-lg) + 120px) 0 var(--spacing-lg);
+                min-height: auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .about-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                font-size: 5rem;
+            }
+
+            .modal-content {
+                margin: 1rem auto;
+            }
+
+            .modal-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+
+            .modal-header h2 {
+                font-size: 2rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-logo">Nicole Lee</a>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    Hi, I'm Nicole Lee —<br>
+                    <span class="title-accent">Product Designer</span>
+                </h1>
+                <p class="hero-subtitle">
+                    I design research-backed, user-centered digital products that solve real problems.
+                </p>
+                <p class="hero-current">
+                    Currently: Product Designer at Bonded Diamond
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="work">
+            <div class="container">
+                <h2 class="section-heading">Selected Work</h2>
+                
+                <div class="projects-grid">
+                    <!-- Bonded Diamond -->
+                    <a href="bonded-diamond.html" class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Bonded Diamond</h3>
+                            <span class="project-arrow">→</span>
+                        </div>
+                        <p class="project-description">
+                            Designing tools for diamond lifecycle transparency
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-role">Product Design, UX Research</span>
+                        </div>
+                        <p class="project-problem">
+                            <strong>Problem:</strong> Bonded Diamond needed clearer user flows & trust indicators.
+                        </p>
+                    </a>
+
+                    <!-- SWITCH -->
+                    <a href="switch.html" class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">SWITCH</h3>
+                            <span class="project-arrow">→</span>
+                        </div>
+                        <p class="project-description">
+                            Redesigning financial tools for student loan borrowers
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-role">UX/UI Design, User Research</span>
+                        </div>
+                        <p class="project-problem">
+                            <strong>Problem:</strong> Students needed a clearer way to understand and manage loan repayment options.
+                        </p>
+                    </a>
+
+                    <!-- Aible -->
+                    <a href="aible.html" class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Aible</h3>
+                            <span class="project-arrow">→</span>
+                        </div>
+                        <p class="project-description">
+                            Simplifying enterprise AI platform navigation
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-role">Product Design, Interaction Design</span>
+                        </div>
+                        <p class="project-problem">
+                            <strong>Problem:</strong> Complex workflows and unclear navigation prevented users from maximizing platform value.
+                        </p>
+                    </a>
+
+                    <!-- GovernAIce -->
+                    <a href="governaice.html" class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">GovernAIce</h3>
+                            <span class="project-arrow">→</span>
+                        </div>
+                        <p class="project-description">
+                            Building trust in AI governance systems
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-role">UX Research, Service Design</span>
+                        </div>
+                        <p class="project-problem">
+                            <strong>Problem:</strong> Organizations lacked visibility into AI decision-making processes, creating trust issues.
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-heading">About Me</h2>
+                
+                <div class="about-profile reveal">
+                    <div class="profile-image">👤</div>
+                    <div class="profile-bio">
+                        <h3>Nicole Lee</h3>
+                        <p>
+                            I'm a product designer who combines research, data, and design thinking to solve real user problems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-section reveal">
+                        <h3>Background</h3>
+                        <p>
+                            I studied cognitive science and data science at UC Berkeley, where I developed a deep curiosity about how people think, make decisions, and interact with technology. This interdisciplinary foundation taught me to approach design problems from multiple angles—understanding both the human psychology behind user behavior and the data that reveals patterns in how products are actually used.
+                        </p>
+                        <p>
+                            Today, I combine research, data analysis, and design thinking to create digital products that are not just beautiful, but genuinely useful. I'm focused on solving real user problems through thoughtful, iterative design that's grounded in evidence and empathy.
+                        </p>
+                    </div>
+
+                    <div class="about-section reveal">
+                        <h3>How I Work</h3>
+                        <p>
+                            My design process is rooted in understanding people first, then designing solutions that meet their actual needs.
+                        </p>
+                        <ul>
+                            <li><strong>Human-centered research</strong> — I start by understanding users through interviews, observations, and contextual inquiry</li>
+                            <li><strong>Usability testing</strong> — I validate assumptions early and often, learning from real user behavior</li>
+                            <li><strong>Iterative prototyping</strong> — I design, test, learn, and refine in cycles</li>
+                            <li><strong>Cross-functional collaboration</strong> — I work closely with engineering, product, and stakeholders to ship solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section reveal">
+                        <h3>What I Care About</h3>
+                        <ul>
+                            <li><strong>Accessibility</strong> — Good design should work for everyone</li>
+                            <li><strong>Product thinking</strong> — I care about the whole picture and how design decisions impact outcomes</li>
+                            <li><strong>Measurable impact</strong> — Design should be evaluated on whether it helps people accomplish their goals</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section reveal">
+                        <h3>Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-tag">User Research & Synthesis</div>
+                            <div class="skill-tag">Usability Testing</div>
+                            <div class="skill-tag">Prototyping</div>
+                            <div class="skill-tag">Design Systems</div>
+                            <div class="skill-tag">Interaction Design</div>
+                            <div class="skill-tag">Information Architecture</div>
+                            <div class="skill-tag">Cross-functional Collaboration</div>
+                            <div class="skill-tag">Data-Informed Design</div>
+                        </div>
+                    </div>
+
+                    <div class="about-section reveal">
+                        <p style="font-style: italic; font-size: 1.15rem; color: var(--color-accent-dark);">
+                            I'm always learning, curious by nature, and love turning ambiguity into clarity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-heading">Let's Connect</h2>
+                <p class="contact-intro">
+                    I'm open to product design opportunities and collaborations. Whether you have a project in mind or just want to chat about design, I'd love to hear from you.
+                </p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">
+                            <a href="mailto:nicolelee3003@gmail.com">nicolelee3003@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">
+                            <a href="https://linkedin.com/in/nicolee03/" target="_blank" rel="noopener noreferrer">linkedin.com/in/nicolee03/</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="resume.pdf" class="resume-btn" download>Download my resume →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Nicole Lee — Designed & built with care</p>
+        </div>
+    </footer>
+
+    <script>
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        function checkReveal() {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveal);
+        checkReveal();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
