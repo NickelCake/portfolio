@@ -48,7 +48,7 @@ export function Contact() {
         <div className="mt-12">
           <a
             href="/resume.pdf"
-            className="inline-flex items-center justify-center border border-sky-600 bg-sky-600 px-8 py-4 text-sm font-semibold text-white transition hover:bg-sky-500"
+            className="inline-flex items-center justify-center border border-sky-500 bg-sky-500 px-8 py-4 text-sm font-semibold text-white transition hover:bg-sky-600"
           >
             Download my resume →
           </a>
