@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ToolsCarousel } from './ToolsCarousel'
+import { appIcons } from './FloatingIcons'
 
 export function Work() {
   const listTopRef = useRef<HTMLAnchorElement | null>(null)
@@ -62,9 +62,18 @@ export function Work() {
     window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
   }
 
+  const toolkitOffsets = ['translate-y-1', '-translate-y-2', 'translate-y-3', '-translate-y-1', 'translate-y-2']
+
   return (
-    <section id="projects" className="scroll-mt-28 bg-[#F7F1EA] pt-12 pb-24 relative">
-      <div className="mx-auto max-w-7xl px-6 -mt-40 md:-mt-48 lg:-mt-56 relative z-10">
+    <section
+      id="projects"
+      className="scroll-mt-28 -mt-20 md:-mt-28 bg-[#D8E1F1] pt-0 pb-24 relative overflow-visible"
+    >
+      <div
+        className="absolute inset-x-0 top-48 md:top-64 bottom-0 projects-bg z-0 pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="mx-auto max-w-7xl px-6 relative z-20">
         <h2 className="mb-4">
           <button
             type="button"
@@ -175,7 +184,32 @@ export function Work() {
           })}
         </div>
 
-        <ToolsCarousel />
+        <div className="mt-32 mb-16">
+          <h3 className="font-serif font-normal italic text-[clamp(1.75rem,3.5vw,2.5rem)] tracking-tight text-[#1F385B] mb-10 text-left">
+            Current Toolkit
+          </h3>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-8 md:gap-10">
+            {appIcons.map((icon, index) => {
+              const wobbleClass = toolkitOffsets[index % toolkitOffsets.length]
+              return (
+                <div
+                  key={icon.name}
+                  className={`flex-shrink-0 flex items-center justify-center ${wobbleClass}`}
+                  style={{
+                    animation: `bobIcon ${icon.duration} ease-in-out infinite`,
+                    animationDelay: icon.delay,
+                  }}
+                >
+                  <img
+                    src={icon.icon}
+                    alt={icon.name}
+                    className="w-14 h-14 md:w-16 md:h-16 object-contain"
+                  />
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
     </section>
   )

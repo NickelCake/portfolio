@@ -98,14 +98,15 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Inverted overall background relative to project cards */
-  background-color: #f7f1ea;
+  /* Cool, airy overall background */
+  background-color: #edf1fa;
 }
 
 .bubble-float {
@@ -152,7 +153,7 @@ body {
 }
 
 .hero-inspo-bg {
-  /* Soft, blurred "color wash" inspired background */
+  /* Soft, blurred "rainbow" inspired background */
   background:
     radial-gradient(60% 55% at 70% 35%, rgba(168, 85, 247, 0.35) 0%, rgba(168, 85, 247, 0) 70%),
     radial-gradient(55% 55% at 40% 25%, rgba(59, 130, 246, 0.32) 0%, rgba(59, 130, 246, 0) 72%),
@@ -161,6 +162,19 @@ body {
     linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.9));
   filter: blur(44px) saturate(1.18);
   transform: scale(1.12);
+  opacity: 1;
+}
+
+.projects-bg {
+  /* Soft, blurred blue wash for project section - lighter, less saturated */
+  background:
+    radial-gradient(80% 80% at 15% 5%, rgba(232, 239, 252, 0.9) 0%, rgba(232, 239, 252, 0) 60%),
+    radial-gradient(70% 70% at 85% 15%, rgba(188, 206, 236, 0.6) 0%, rgba(188, 206, 236, 0) 65%),
+    radial-gradient(70% 70% at 20% 80%, rgba(129, 158, 191, 0.4) 0%, rgba(129, 158, 191, 0) 65%),
+    radial-gradient(90% 90% at 80% 85%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(180deg, #dde6f7 0%, #e7eefb 55%, #f5f7ff 100%);
+  filter: blur(36px) saturate(1.02);
+  transform: scale(1.08);
   opacity: 1;
 }
 

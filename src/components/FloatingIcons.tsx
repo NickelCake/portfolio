@@ -5,7 +5,7 @@ interface FloatingIconsProps {
 }
 
 // Fixed static positions for each icon - positioned on right side to avoid text
-const appIcons = [
+export const appIcons = [
   { name: 'Figma', icon: '/icons/figma.png', left: '75%', top: '15%', delay: '0s', duration: '3s' },
   { name: 'Illustrator', icon: '/icons/illustrator.png', left: '80%', top: '25%', delay: '0.5s', duration: '3.5s' },
   { name: 'Photoshop', icon: '/icons/photoshop.png', left: '70%', top: '35%', delay: '1s', duration: '4s' },

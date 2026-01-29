@@ -14,7 +14,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-[#F7F1EA] py-12 md:py-16">
+    <footer className="bg-[#edf1fa] py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
         <div>
           <h2 className="text-3xl md:text-4xl font-serif italic text-[#19195C]">
