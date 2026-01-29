@@ -98,6 +98,245 @@ export const projectData: Record<string, ProjectData> = {
       },
     ],
   },
+  'corner': {
+    title: 'Corner',
+    overview: 'Designing a vibe-based social map to discover places through people, not ratings.',
+    role: 'UX/UI Design, Product Thinking, Interaction Design',
+    timeline: '24-hour designathon (Stanford We the Design Kids)',
+    tools: 'Figma, Rapid Ideation, Competitive Analysis',
+    sections: [
+      {
+        title: '1. Problem / Challenge',
+        content: `
+          <p>Finding good places to go with friends shouldn’t feel like doing research. Most discovery tools like Google Maps and Yelp optimize for ratings, reviews, and popularity—but those metrics strip away context.</p>
+          <p>In practice, a 4.5‑star restaurant might be perfect for a fitness guru but completely wrong for a busy student. People are left asking:</p>
+          <ul>
+            <li>Will <em>I</em> actually like this place?</li>
+            <li>Is this my vibe—or just popular?</li>
+            <li>Where do people like me actually go?</li>
+          </ul>
+          <p>Corner’s existing experience largely served Type A planners—the friends who naturally take initiative and drive decisions. But social plans rarely involve a single decision‑maker. To increase engagement, Corner needed a way to actively include Type B participants—the more passive, reactive, or mood‑driven friends—without killing spontaneity.</p>
+          <p><strong>Core challenge:</strong> Most tools assume one planner. Real groups don’t work that way.</p>
+          <p>We framed our “How might we” as: <strong>How might we design an inclusive, engaging planning experience that actively involves both planners and participants without forcing rigid structure?</strong></p>
+        `,
+      },
+      {
+        title: '2. Context, Team & Role',
+        content: `
+          <p>This project was completed during a 24‑hour designathon at Stanford We the Design Kids.</p>
+          <p><strong>Context:</strong> High‑pressure, short‑timeline sprint focused on rethinking place discovery in a more human, social, and personal way.</p>
+          <p><strong>Team:</strong> 3 designers collaborating closely across research, concepting, and UI.</p>
+          <p><strong>My role:</strong> UX/UI Design, product thinking, and interaction design. I helped define the product thesis, co‑led research synthesis, and designed core flows and UI in Figma.</p>
+          <p><strong>Outcome:</strong> The project was awarded <strong>1st place</strong> out of 150+ participants and was presented directly to Corner’s CEO.</p>
+        `,
+      },
+      {
+        title: '3. Research & Key Insights',
+        content: `
+          <p>Within the 24‑hour window, we ran rapid research to understand how people actually make plans with friends.</p>
+          <p><strong>We explored:</strong></p>
+          <ul>
+            <li>How often people hang out with friends and how those plans start.</li>
+            <li>Who usually takes initiative versus who “goes with the flow.”</li>
+            <li>How social media, hype, and mood influence decisions.</li>
+          </ul>
+          <h4>What we learned</h4>
+          <ul>
+            <li>&gt;50% of people decide where to go based on how they feel in the moment.</li>
+            <li>&gt;90% lean on places popularized by social media more than personal exploration.</li>
+            <li>~50% switch between “planner” and “follower” depending on mood and group.</li>
+            <li>~50% are flexible and willing to change plans last‑minute.</li>
+          </ul>
+          <div class="highlight-box">
+            <p>“We send places throughout the week, but decide on the weekend based on how we’re feeling.”</p>
+          </div>
+          <p><strong>Key reframe:</strong> People aren’t strictly planners or followers—they oscillate depending on group context. The problem isn’t “How do we help planners plan better?” but “How do we support shared, fluid decision‑making?”</p>
+        `,
+      },
+      {
+        title: '4. Concept: Corner',
+        content: `
+          <p>We reframed Corner as a social, vibe‑based map that reflects <em>your</em> world—not the internet’s.</p>
+          <p><strong>Corner helps people:</strong></p>
+          <ul>
+            <li>Import places they love from anywhere—Google Maps, Instagram, TikTok.</li>
+            <li>Discover spots through friends and taste‑aligned people, not anonymous ratings.</li>
+            <li>Understand the story and vibe behind a place, not just its score.</li>
+          </ul>
+          <p>Instead of asking, “What’s top‑rated nearby?” Corner answers: <strong>“Where would someone like me go tonight?”</strong></p>
+          <p>This led to a core interaction model built around lightweight, game‑like group decision‑making—so plans feel collaborative, fast, and fun.</p>
+        `,
+      },
+      {
+        title: '5. Design Goals',
+        content: `
+          <p>Guided by our research, we defined three design goals:</p>
+          <ul>
+            <li><strong>Work for both planners and followers.</strong> Type A users should be able to lead without carrying all the cognitive load; Type B users should be able to participate meaningfully without pressure.</li>
+            <li><strong>Encourage discovery driven by mood and curiosity, not just popularity.</strong> Surfacing places based on people, vibes, and social overlap rather than pure ratings.</li>
+            <li><strong>Create a mechanism for active participation that still feels lightweight.</strong> Group decisions should be fast, satisfying, and inclusive—not bogged down by endless scrolling or voting fatigue.</li>
+          </ul>
+          <p>These principles set the foundation for Corner’s gamified decision experience.</p>
+        `,
+      },
+      {
+        title: '6. Solution & Design Decisions',
+        content: `
+          <p>We translated our insights into three core design principles that shaped the product experience.</p>
+          <h4>1. Live participation</h4>
+          <p>Corner introduces a live “session” mode where friends make decisions together in real time:</p>
+          <ul>
+            <li>Everyone joins the same session from a link.</li>
+            <li>Suggested places appear as a shared, swipeable stack.</li>
+            <li>Reactions and votes are visible so decisions feel collaborative, not dictated.</li>
+          </ul>
+          <p>This enables instant alignment, reduces back‑and‑forth in group chats, and supports spontaneous plans.</p>
+          <h4>2. Freedom of choice</h4>
+          <p>The interaction model respects different social roles:</p>
+          <ul>
+            <li>Type A users can propose places directly from their saved spots or social feeds.</li>
+            <li>Type B users don’t have to suggest anything—they can still participate through swipes, reactions, and quick votes.</li>
+          </ul>
+          <p>This keeps planning inclusive without forcing everyone into the “planner” role.</p>
+          <h4>3. Structured boundaries</h4>
+          <p>To avoid decision paralysis, Corner limits each live session to a focused set of options:</p>
+          <ul>
+            <li>A small, curated stack of places per session.</li>
+            <li>Clear round‑based progress (for example, “3 places left to decide”).</li>
+            <li>Lightweight gamification that nudges the group toward a decision.</li>
+          </ul>
+          <p>This balance of freedom and constraint keeps the experience playful while still getting the group somewhere concrete, fast.</p>
+        `,
+      },
+      {
+        title: '7. Outcomes, Next Steps & Reflection',
+        content: `
+          <p><strong>Outcome:</strong> Corner won <strong>1st place</strong> at the Stanford We the Design Kids designathon out of 150+ participants and was presented directly to the CEO. The concept was praised for strong product intuition, clear framing of group social dynamics, and polished execution under extreme time pressure.</p>
+          <p><strong>If we had more time, we would:</strong></p>
+          <ul>
+            <li>Define and track feature‑level hypotheses and metrics like save‑to‑visit rate, repeat group sessions, and social‑overlap engagement.</li>
+            <li>Deepen taste‑matching and trust calibration so users understand <em>why</em> they see certain recommendations.</li>
+            <li>Design an experimentation framework to test variations in game mechanics and group flows.</li>
+            <li>Explore long‑term social dynamics as friend groups change, people move, and tastes evolve.</li>
+          </ul>
+          <p><strong>Reflection:</strong> This project reinforced a lesson from Corner’s CEO—good design is a science, and great design happens when strong process meets strong taste. In 24 hours, we:</p>
+          <ul>
+            <li>Defined a clear product thesis rooted in real social behavior.</li>
+            <li>Grounded decisions in quick but targeted research.</li>
+            <li>Executed an end‑to‑end experience that felt personal, expressive, and human.</li>
+          </ul>
+          <p>Corner shows how reframing discovery around people instead of data can turn a familiar utility (maps) into something that actually reflects your world.</p>
+        `,
+      },
+    ],
+  },
+  'switch-ai-urbiverse': {
+    title: 'Switch AI – Urbiverse',
+    overview:
+      'Designing an AI-powered fleet management simulation dashboard to support confident EV charging and operations decisions.',
+    role: 'UX/UI Designer, UX Researcher',
+    timeline: '10 weeks',
+    tools: 'Figma, User Interviews, Usability Testing',
+    sections: [
+      {
+        title: '1. Problem / Challenge',
+        content: `
+          <p>Switch AI – Urbiverse is an AI-driven fleet management platform that helps enterprise teams plan, simulate, and optimize electric vehicle (EV) charging infrastructure. Its users—fleet managers, operations analysts, and sustainability leads—make high-stakes decisions involving infrastructure costs, charging coverage, and day-to-day operational efficiency.</p>
+          <p>While Switch’s underlying algorithms produced robust optimization results, the UX made those insights difficult to understand and act on. Simulation outputs were presented in dense, technical views that assumed a high level of analytical expertise.</p>
+          <p>Users struggled to answer fundamental questions like:</p>
+          <ul>
+            <li>Is this the best charging configuration for my fleet?</li>
+            <li>What trade-offs am I making between cost, coverage, and charging time?</li>
+            <li>Why should I trust this scenario over others?</li>
+          </ul>
+          <p>As a result, users lacked confidence in the platform—even when the system was technically correct.</p>
+        `,
+      },
+      {
+        title: '2. Role & Responsibilities',
+        content: `
+          <p>I led UX research and design for Switch’s new AI simulation platform, Urbiverse, working closely with a product manager and engineering partners.</p>
+          <p><strong>My responsibilities included:</strong></p>
+          <ul>
+            <li>Conducting discovery interviews with fleet managers and operations stakeholders to understand real decision workflows.</li>
+            <li>Mapping end-to-end journeys for simulation review, comparison, and final decision-making.</li>
+            <li>Designing wireframes and high-fidelity UI for dashboards, scenario overviews, and simulation result pages.</li>
+            <li>Iterating on the experience through usability testing and ongoing stakeholder feedback.</li>
+          </ul>
+          <p>The goal was to transform complex AI outputs into clear, actionable decision support that fleet teams could trust.</p>
+        `,
+      },
+      {
+        title: '3. Research & Insights',
+        content: `
+          <p>I conducted qualitative interviews with fleet operators and reviewed existing simulation workflows to understand how users interpreted results and made decisions.</p>
+          <h4>Key insights</h4>
+          <ul>
+            <li><strong>Results without context felt meaningless.</strong> Users saw metrics like “zones,” “charging poles,” and “relocation cost,” but lacked guidance on whether those values were good or bad.</li>
+            <li><strong>Users thought in scenarios, not charts.</strong> Fleet managers naturally framed decisions as comparisons—best case vs. worst case, cost-optimized vs. demand-optimized—but the interface emphasized raw outputs rather than scenario reasoning.</li>
+            <li><strong>Confidence mattered as much as optimization.</strong> Because these decisions affected long-term infrastructure investments, users wanted reassurance, not just the “optimal” number. They needed summaries, explanations, and clarity—not only dense metrics.</li>
+          </ul>
+          <div class="highlight-box">
+            <p>“I see the output, but I don’t know if I should trust it or what to do next.” — Fleet Manager</p>
+          </div>
+        `,
+      },
+      {
+        title: '4. Design Goals & Constraints',
+        content: `
+          <p>Based on research, I defined clear design goals for the Urbiverse experience:</p>
+          <ul>
+            <li>Make AI-generated simulation results immediately understandable.</li>
+            <li>Clearly communicate trade-offs between cost, coverage, and performance.</li>
+            <li>Help users feel confident selecting a “best” scenario for their specific context.</li>
+            <li>Reduce cognitive load when reviewing complex datasets and multiple simulations.</li>
+          </ul>
+          <p><strong>Constraints:</strong></p>
+          <ul>
+            <li>The platform needed to support multiple simulations and configurations side by side.</li>
+            <li>Data structures and much of the terminology were fixed by backend models.</li>
+            <li>The UI had to scale to enterprise-level complexity without overwhelming users.</li>
+          </ul>
+        `,
+      },
+      {
+        title: '5. Ideation & Iteration',
+        content: `
+          <p><strong>Initial approach:</strong> Early designs prioritized transparency by exposing most metrics at once, assuming more data would build trust. Usability testing showed the opposite—users felt overwhelmed and unsure where to focus.</p>
+          <p><strong>Iteration 1 – Scenario highlighting:</strong> I introduced a “Best Scenario Results” section that surfaced optimal configurations based on different goals (for example, cost efficiency vs. satisfied demand). This helped users orient themselves, but they still lacked a clear understanding of <em>why</em> a scenario was recommended.</p>
+          <p><strong>Iteration 2 – Structured insight layers:</strong> I redesigned the results experience around a clearer hierarchy:</p>
+          <ul>
+            <li><strong>Top-line recommendation:</strong> A plain-language explanation of the best configuration and what it optimizes for.</li>
+            <li><strong>Key metric cards:</strong> Zones, charging time, relocation cost, infrastructure cost, each with short labels explaining what “good” looks like.</li>
+            <li><strong>Geospatial visualization:</strong> A map of charging pole distribution by zone to connect numbers to real-world geography.</li>
+            <li><strong>Expandable detail:</strong> Deeper tables and charts for power users who wanted to validate assumptions.</li>
+          </ul>
+          <p>This layered approach let users move from insight → validation → exploration without getting lost.</p>
+        `,
+      },
+      {
+        title: '6. Final Solution',
+        content: `
+          <p>The final design reframes complex simulation outputs into an intuitive decision-making experience.</p>
+          <ul>
+            <li><strong>Best Scenario Summary:</strong> Prominent callouts explain the recommended configuration in simple, goal-aligned language so users understand “what the system thinks” and why.</li>
+            <li><strong>Scannable metric cards:</strong> Key performance and cost indicators are presented as digestible cards, each with contextual descriptions rather than raw labels.</li>
+            <li><strong>Geospatial visualization:</strong> An interactive map shows where charging infrastructure is placed across zones, helping users connect the proposal to real roads and depots.</li>
+            <li><strong>Scenario management panel:</strong> Users can search, compare, and revisit past simulations, enabling iterative planning and collaboration across teams over time.</li>
+          </ul>
+          <p>Together, these elements help users move from opaque AI output to confident, well-explained decisions.</p>
+        `,
+      },
+      {
+        title: '7. Outcomes & Learnings',
+        content: `
+          <p><strong>Impact (in testing):</strong> Users were able to identify and explain the “best” scenario significantly faster. Stakeholders reported increased confidence in simulation results, and the new structure reduced back-and-forth clarification between operations and product teams.</p>
+          <p><strong>What I’d measure next:</strong> Time to decision across multiple simulations, frequency of scenario comparison before final selection, and long-term trust metrics such as repeated scenario reuse.</p>
+          <p><strong>What I learned:</strong> Designing for AI systems isn’t about showing more data—it’s about explaining <em>why</em> the system is right. For high-stakes infrastructure decisions, clarity, hierarchy, and reassurance are just as important as optimization. Thoughtful UX turns intelligence into confidence.</p>
+        `,
+      },
+    ],
+  },
   'switch': {
     title: 'SWITCH',
     overview: 'Redesigning financial tools for student loan borrowers',
@@ -184,39 +423,42 @@ export const projectData: Record<string, ProjectData> = {
   },
   'aible': {
     title: 'Aible',
-    overview: 'Simplifying enterprise AI platform navigation and workflows',
-    role: 'Product Design, Interaction Design',
-    timeline: '14 weeks',
-    tools: 'Figma, User Interviews, Analytics',
+    overview:
+      'Designing an explainable AI experience that empowers non-technical business users to make confident, data‑driven decisions.',
+    role: 'UX/UI Designer, UX Researcher, Prototype Builder',
+    timeline: '16 weeks (semester UX design course)',
+    tools: 'Figma, User Interviews, Usability Testing, Competitive Analysis',
     sections: [
       {
         title: '1. Problem / Challenge',
         content: `
-          <p>Aible is an enterprise AI platform that helps companies build and deploy machine learning models without requiring deep technical expertise. The platform democratizes AI by making it accessible to business users, not just data scientists.</p>
-          <p>The users were business analysts and operations managers at enterprise companies—people who understood their business problems but weren't ML engineers. They needed to create predictive models to solve challenges like customer churn, demand forecasting, and fraud detection.</p>
-          <p>The core problem: Complex workflows and unclear navigation prevented users from maximizing the platform's value. Users were getting lost in the multi-step model creation process, abandoning projects partway through, and not discovering powerful features that could help them. The interface reflected the platform's technical complexity rather than the user's mental model of their work.</p>
+          <p>Aible is an enterprise AI platform that helps business teams generate predictive insights tied directly to business KPIs. While the underlying models are powerful, the interface historically reflected how data scientists think, not how business users decide.</p>
+          <p>Non‑technical stakeholders were confronted with long text blocks, abstract labels, and dense views that assumed analytical expertise. They struggled to interpret what the AI was doing, why it mattered, and how to act on it.</p>
+          <p>The core challenge: <strong>How might we make data science principles accessible, interpretable, and actionable for non‑technical business users?</strong></p>
         `,
       },
       {
         title: '2. Role & Responsibilities',
         content: `
-          <p><strong>My role:</strong> I led product design and interaction design, partnering with a product manager, data science team, and engineering. I conducted user research with enterprise clients, designed information architecture improvements, created high-fidelity prototypes, and worked closely with engineering on implementation.</p>
-          <p><strong>Timeline:</strong> 14 weeks from research through implementation</p>
-          <p><strong>Tools:</strong> Figma for design and prototyping, user interviews with enterprise clients, Mixpanel analytics to identify drop-off points, collaborative workshops with the product team</p>
+          <p>This was a UX class project grounded in a real enterprise product.</p>
+          <p><strong>My role:</strong> UX/UI Designer, Researcher, Prototype Builder. I framed the problem around business user accessibility, conducted usability walkthroughs and informal interviews, analyzed analogous enterprise tools, and designed high‑fidelity prototypes in Figma.</p>
+          <p><strong>Team:</strong> Solo design work with collaborative critiques from classmates and instructors.</p>
+          <p><strong>Timeline:</strong> 16 weeks (semester‑long UX design course).</p>
         `,
       },
       {
         title: '3. Research & Insights',
         content: `
-          <p>I conducted 10 user interviews with business analysts and operations managers at client companies. I also analyzed platform usage data to identify where users were dropping off, and shadowed 3 users as they worked through real projects to understand friction points in context.</p>
+          <p>I combined competitive teardown, informal interviews, and usability testing to understand expectations and friction points for enterprise AI tools.</p>
+          <p><strong>Methods:</strong> Competitive analysis of analytics and AI platforms; informal interviews and walkthroughs with classmates acting as business users; lightweight usability tests of early Figma flows.</p>
           <h4>Key Insights</h4>
           <ul>
-            <li><strong>Lost in the process:</strong> The model-building workflow had 8+ steps spread across different sections of the app. Users couldn't see where they were in the process or what came next, leading to confusion and abandonment</li>
-            <li><strong>Feature blindness:</strong> Users were unaware of key features like automated model optimization and data quality checks because they were buried in menus. They were manually doing work the platform could automate</li>
-            <li><strong>Unclear value:</strong> Users didn't understand the impact of their design choices. When setting parameters, they didn't know how their selections would affect model performance, so they defaulted to whatever was pre-selected</li>
+            <li><strong>Users didn’t understand results—even when they were correct.</strong> AI outputs were accurate but felt opaque. Participants said things like “I see the result, but I don’t know what caused it or what to do next.”</li>
+            <li><strong>Business users think in scenarios, not models.</strong> They framed questions as “What if we change X?” but the UI emphasized system steps and technical logic.</li>
+            <li><strong>Trust depended on traceability.</strong> When users couldn’t see how their assumptions or feedback affected outcomes, confidence dropped—even if the AI was right.</li>
           </ul>
           <div class="highlight-box">
-            <p>"I know this platform can do a lot, but I feel like I'm only using 20% of it because I can't find things. I'm probably doing things the hard way without knowing there's a better option." — Interview participant, business analyst at Fortune 500 company</p>
+            <p>"I see the result, but I don’t really know what caused it or what I should do next." — Classmate acting as a business stakeholder</p>
           </div>
         `,
       },
@@ -225,43 +467,43 @@ export const projectData: Record<string, ProjectData> = {
         content: `
           <p>The main design goals were:</p>
           <ul>
-            <li>Create clear navigation that matches users' mental model of "building a model" rather than the technical architecture of the system</li>
-            <li>Surface helpful features at the moment users need them, rather than hiding everything in menus</li>
-            <li>Provide contextual guidance that helps users understand the impact of their choices without requiring ML expertise</li>
+            <li>Make AI insights understandable at a glance, with scannable summaries rather than dense paragraphs.</li>
+            <li>Clearly communicate why a recommendation exists and which factors influenced it.</li>
+            <li>Enable users to explore “what‑if” business scenarios and compare outcomes side‑by‑side.</li>
+            <li>Reduce the cognitive gap between AI output and real decision‑making.</li>
           </ul>
-          <p><strong>Constraints:</strong> We couldn't change the underlying technical workflow—model building inherently requires multiple steps with dependencies between them. We also had to maintain backwards compatibility for existing power users who had learned the current system. Platform performance was a concern (we couldn't add too many UI elements that would slow load times for enterprise-scale data). Timeline was tight—we needed to ship before the annual user conference.</p>
+          <p><strong>Constraints:</strong> I didn’t have access to live data or real back‑end models, and much of the platform terminology was fixed. The prototype had to communicate AI behavior and explainability using static but believable flows.</p>
         `,
       },
       {
         title: '5. Ideation & Iteration',
         content: `
-          <p>I started by mapping the current user journey and identifying the highest-impact pain points. My initial design concept introduced a left-hand navigation rail showing all 8 steps at once. Early testing revealed this created new confusion—users felt overwhelmed seeing all steps upfront when they weren't ready for later ones.</p>
-          <p><strong>Iteration 1:</strong> I tested a wizard-style flow that locked users into a linear path. Power users hated it—they needed to jump back and forth between steps as they refined their model. The rigidity prevented the iterative workflow that's essential for model development.</p>
-          <p><strong>Key learning:</strong> We needed progressive structure, not rigid linearity. Show users where they are and what's next, but allow flexibility for iteration.</p>
-          <p><strong>Iteration 2:</strong> I designed a stepped progress indicator at the top of the workspace that showed the user's current step in context of the full workflow, with completed steps marked and future steps visible but de-emphasized. This let users see the full picture while focusing on their current task. Critically, all steps remained clickable so power users could jump around.</p>
-          <p><strong>Specific design decision:</strong> We added contextual tooltips and inline suggestions that appeared at decision points. For example, when a user was setting a data threshold, we showed "Higher values = more precision, lower values = catch more cases" with a visualization of the tradeoff. This surfaced the impact of technical choices without requiring users to understand the underlying ML concepts.</p>
+          <p>I started by examining the “before” experience: long text explanations, minimal visual feedback during loading, and abstract labels like “Agent Steps” that meant little to non‑experts.</p>
+          <p><strong>Iteration 1 – Progress transparency:</strong> I introduced visible step‑by‑step progress indicators and clearer system feedback so users always knew where they were in the AI process. This improved trust, but outcomes still felt hard to interpret.</p>
+          <p><strong>Iteration 2 – Visual insight delivery:</strong> I translated dense summaries into structured, card‑based insights tied directly to business KPIs, emphasizing “what changed” and “why it matters” instead of raw text. This dramatically improved scan‑ability in testing.</p>
         `,
       },
       {
         title: '6. Final Solution',
         content: `
-          <p>The redesigned platform helps users navigate complex AI workflows with clarity and confidence:</p>
+          <p>The final prototype reframes AI output as decision support rather than a technical report.</p>
           <ul>
-            <li><strong>Clear progress tracking</strong> — Stepped navigation shows users where they are in the 8-step process, what's complete, and what's next, while allowing flexibility to jump between steps</li>
-            <li><strong>Contextual feature discovery</strong> — Automated optimization and data quality tools now appear inline at the moment users need them, with clear explanations of what they do</li>
-            <li><strong>Guided decision-making</strong> — At every parameter selection, users see the impact of their choice explained in business terms, not technical jargon</li>
+            <li><strong>Scannable insight dashboard</strong> — Key results are presented as visual cards tied directly to business KPIs, reducing time to understanding.</li>
+            <li><strong>Explainability panel</strong> — Users can drill into each recommendation to see which inputs and assumptions influenced the outcome most.</li>
+            <li><strong>Scenario exploration</strong> — Side‑by‑side scenario views let users compare different “what‑if” configurations and understand trade‑offs instead of just raw model accuracy.</li>
+            <li><strong>Transparent system feedback</strong> — Progress indicators and clear status states reduce uncertainty while the AI is running.</li>
           </ul>
           <div class="highlight-box">
-            <p>How it solves the original problem: Users can now navigate the platform confidently, discovering features that save time and improve outcomes. The interface hides technical complexity while surfacing the right information at the right time, letting business users focus on their goals rather than learning ML.</p>
+            <p>How it solves the original problem: Non‑technical business users can now see what the AI is doing, why a recommendation exists, and how different choices affect outcomes—turning a black box into a collaborative decision partner.</p>
           </div>
         `,
       },
       {
         title: '7. Outcomes / Learnings',
         content: `
-          <p><strong>Impact:</strong> Model completion rate increased from 42% to 71%—significantly more users were finishing projects they started. Usage of automated optimization features increased 3x after we made them more discoverable. Support tickets about "how do I..." decreased by 40%. Client feedback: "It finally feels like a tool designed for people like me, not just data scientists."</p>
-          <p><strong>What I'd measure next:</strong> I'd track feature adoption depth (are users just trying features or integrating them into their regular workflow?) and time-to-value (how long from account creation to first successful model deployment). Would also measure model quality improvements to see if better feature discovery leads to better outcomes.</p>
-          <p><strong>What I learned:</strong> Complex workflows don't require complex interfaces. Users can handle sophisticated tools if the interface maps to their mental model rather than the system architecture. Also, progressive disclosure works best when paired with flexibility—show users what's next without forcing them down a single path. Context is more valuable than features—users need to understand why they should care, not just what the feature does.</p>
+          <p><strong>Impact (in testing):</strong> Participants understood AI recommendations faster, reported higher confidence in results, and preferred the visual summaries over the original dense text.</p>
+          <p><strong>What I'd measure next:</strong> Time to insight comprehension, confidence ratings before and after explanations, and how often users explore scenarios before deciding.</p>
+          <p><strong>What I learned:</strong> Designing AI tools for business users isn’t about simplifying intelligence—it’s about reframing it. When UX aligns AI reasoning with business decision‑making, complex systems feel approachable, trustworthy, and empowering.</p>
         `,
       },
     ],

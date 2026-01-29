@@ -30,7 +30,7 @@ export function Navigation() {
         scrolled ? 'shadow-[0_12px_40px_rgba(0,0,0,0.10)]' : ''
       }`}
     >
-      <div className="mx-auto max-w-5xl px-6 flex justify-between items-center">
+      <div className="mx-auto max-w-7xl px-6 flex justify-between items-center">
         <Link
           to="/"
           onClick={(e) => {
@@ -39,7 +39,7 @@ export function Navigation() {
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }
           }}
-          className={`${isProjectPage ? 'text-2xl' : 'text-xl'} font-serif italic text-stone-900 hover:text-sky-500 transition-colors`}
+          className={`${isProjectPage ? 'text-2xl' : 'text-xl'} font-['DM_Serif_Display'] font-normal italic text-[#19195C] hover:text-sky-500 transition-colors`}
         >
           Nicole Lee
         </Link>
@@ -47,11 +47,11 @@ export function Navigation() {
           <ul className="flex gap-8 list-none">
             <li>
               <Link
-                to="/#work"
-                onClick={(e) => handleNavClick(e, 'work')}
+                to="/#projects"
+                onClick={(e) => handleNavClick(e, 'projects')}
                 className={`${isProjectPage ? 'text-base' : 'text-sm'} text-stone-700 font-medium hover:text-stone-900 transition-colors`}
               >
-                Work
+                Projects
               </Link>
             </li>
             <li>
@@ -63,6 +63,12 @@ export function Navigation() {
               </Link>
             </li>
           </ul>
+          <a
+            href="mailto:nicolelee3003@gmail.com"
+            className={`${isProjectPage ? 'text-base' : 'text-sm'} text-stone-700 font-medium hover:text-stone-900 transition-colors`}
+          >
+            Email
+          </a>
           <a
             href="https://linkedin.com/in/nicolee03/"
             target="_blank"

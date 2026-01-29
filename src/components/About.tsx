@@ -18,7 +18,7 @@ export function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <div className="about-vignette">
-            <h2 className="font-serif text-[clamp(1.75rem,3.5vw,2.5rem)] tracking-tight text-stone-900 mb-5">
+            <h2 className="font-serif text-[clamp(1.75rem,3.5vw,2.5rem)] tracking-tight text-[#19195C] mb-5">
               About Nicole
             </h2>
 
@@ -70,17 +70,13 @@ export function About() {
               <div className="absolute -right-7 bottom-20 h-10 w-16 rounded-full bg-sky-100/80 shadow-sm" />
               <div className="absolute -right-3 bottom-18 h-8 w-12 rounded-full bg-sky-100/80 shadow-sm" />
 
-              {/* Photo placeholder: swap this div for an <img> later */}
-              <div className="absolute inset-[10%] rounded-full bg-white shadow-[0_25px_60px_rgba(0,0,0,0.15)] ring-1 ring-black/5 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-5xl">👤</div>
-                  <div className="mt-3 text-xs font-semibold tracking-wide text-stone-500">
-                    Add your photo
-                  </div>
-                  <div className="mt-1 text-[11px] text-stone-400">
-                    (Drop an image in <code className="font-mono">public/</code>)
-                  </div>
-                </div>
+              {/* Photo */}
+              <div className="absolute inset-[10%] rounded-full overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
+                <img
+                  src="/nicole_about.jpg"
+                  alt="Nicole Lee"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
           </div>

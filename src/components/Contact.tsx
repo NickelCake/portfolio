@@ -2,7 +2,7 @@ export function Contact() {
   return (
     <section id="contact" className="scroll-mt-28 bg-white py-24">
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] italic tracking-tight text-stone-900">
+        <h2 className="font-serif font-normal text-[clamp(2rem,4vw,3rem)] tracking-tight text-[#19195C]">
           Let&apos;s Connect
         </h2>
         <p className="mt-8 max-w-2xl text-xl leading-relaxed text-stone-800">

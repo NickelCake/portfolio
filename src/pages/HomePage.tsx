@@ -22,6 +22,7 @@ export function HomePage() {
   return (
     <div className="min-h-screen">
       <Navigation />
+
       <Hero />
       <Work />
       <Footer />
